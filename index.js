@@ -166,23 +166,27 @@ export default class VideoPlayer extends Component {
   }
 
   onEnd(event) {
+    this.setState({
+      isPlaying: false
+    })
+    
     if (this.props.onEnd) {
       this.props.onEnd(event);
     }
 
-    if (this.props.endWithThumbnail) {
-      this.setState({ isStarted: false });
-      this.player.dismissFullscreenPlayer();
-    }
+    //if (this.props.endWithThumbnail) {
+    //  this.setState({ isStarted: false });
+    //  this.player.dismissFullscreenPlayer();
+    //}
 
-    this.setState({ progress: 1 });
+    //this.setState({ progress: 1 });
 
-    this.player.seek(0);
-    if (!this.props.loop) {
-      this.setState({
-        isPlaying: false,
-      });
-    }
+    //this.player.seek(0);
+    //if (!this.props.loop) {
+    //  this.setState({
+    //    isPlaying: false,
+    //  });
+    //}
   }
 
   onLoad(event) {
